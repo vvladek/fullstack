@@ -3,7 +3,8 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 
-const unbounded = localFont({ src: "./Unbounded-VariableFont.ttf" })
+const unbounded = localFont({ src: "./fonts/Unbounded-VariableFont.ttf" })
+const montserrat = localFont({ src: "./fonts/Montserrat-VariableFont.ttf" })
 
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={unbounded.className}>
+      <body className={`${unbounded.className} ${montserrat.className}`}>
         {children}
       </body>
     </html>
