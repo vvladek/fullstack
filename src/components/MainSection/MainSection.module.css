@@ -7,65 +7,65 @@
 .container {
   display: grid;
   place-items: center end;
-  gap: 10px;
   width: var(--maxAppContainerWidth);
   border-bottom: 3px solid var(--lightColor);
   padding: 200px 0 40px;
+}
 
-  h4 {
-    font-family: var(--h4Font);
-    font-size: var(--h4Size);
-    color: var(--lightTextColor);
-    text-shadow: var(--darkColor) 0 0 20px;
-  }
+.container h4 {
+  font-family: var(--h4Font);
+  font-size: var(--h4Size);
+  color: var(--lightTextColor);
+  text-shadow: var(--darkColor) 0 0 20px;
+  padding-bottom: 20px;
+}
 
-  h1 {
-    font-family: var(--h1Font);
-    font-size: var(--h1Size);
-    color: var(--lightTextColor);
-    text-align: end;
-    text-shadow: var(--darkColor) 0 0 20px;
-  }
+.container h1 {
+  font-family: var(--h1Font);
+  font-size: var(--h1Size);
+  color: var(--lightTextColor);
+  text-align: end;
+  text-shadow: var(--darkColor) 0 0 20px;
+}
 
-  p {
-    width: 100%;
-    color: var(--lightTextColor);
-    padding: 100px 0 10px;
-    text-shadow: var(--darkColor) 0 0 20px;
-  }
+.container p {
+  place-self: start;
+  color: var(--lightTextColor);
+  padding: 100px 0 30px;
+  text-shadow: var(--darkColor) 0 0 20px;
 }
 
 .buttonsContainer {
   display: flex;
-  width: 100%;
+  place-self: start;
   gap: 5px;
+}
 
-  button {
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    color: var(--lightTextColor);
-    font-family: var(--buttonFont);
-    font-size: 16px;
-    border: 3px solid var(--lightColor);
-    cursor: pointer;
-    transition-duration: 0.2s;
-  }
+.buttonsContainer button {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  color: var(--lightTextColor);
+  font-family: var(--buttonFont);
+  font-size: 16px;
+  border: 3px solid var(--lightColor);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
 
-  button:hover {
-    filter: brightness(150%);
-  }
+.buttonsContainer button:hover {
+  filter: brightness(150%);
+}
 
-  button:active {
-    transition-duration: 0.05s;
-    filter: brightness(100%);
-  }
+.buttonsContainer button:active {
+  transition-duration: 0.05s;
+  filter: brightness(100%);
+}
 
-  button:nth-child(1) {
-    background-color: var(--darkColor);
-  }
+.buttonsContainer button:nth-child(1) {
+  background-color: var(--darkColor);
+}
 
-  button:nth-child(2) {
-    background-color: var(--brandColor);
-  }
+.buttonsContainer button:nth-child(2) {
+  background-color: var(--brandColor);
 }

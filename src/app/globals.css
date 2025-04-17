@@ -8,17 +8,20 @@
   --brandTextColor: #cf2447;
   --h1Font: "Unbounded Black", Arial, Helvetica, sans-serif;
   --h1Size: 64px;
-  --h4Font: "Unbounded", Arial, Helvetica, sans-serif;
+  --h4Font: "Unbounded SemiBold", Arial, Helvetica, sans-serif;
   --h4Size: 20px;
   --buttonFont: "Unbounded Medium", Arial, Helvetica, sans-serif;
+  --linkFont: "Unbounded", Arial, Helvetica, sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-weight: normal;
   outline: none;
   border: none;
+  text-decoration: none;
 }
 
 *::selection {

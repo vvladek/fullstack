@@ -1,0 +1,65 @@
+.navbar {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--maxAppContainerWidth);
+  height: 60px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav a {
+  color: var(--lightTextColor);
+  font-family: var(--linkFont);
+  text-shadow: var(--darkColor) 0 0 10px;
+  transition-duration: 0.2s;
+}
+
+.nav a:hover {
+  color: var(--brandTextColor);
+  text-shadow: var(--lightColor) 0 0 10px;
+}
+
+.nav a:active {
+  filter: brightness(150%);
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+}
+
+.loginContainer a  {
+  display: grid;
+  place-content: center;
+  width: 140px;
+  height: 33px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--lightTextColor);
+  font-family: var(--linkFont);
+  border: 2px solid var(--lightColor);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.loginContainer a:hover {
+  backdrop-filter: blur(5px);
+}
+
+.loginContainer a:active {
+  backdrop-filter: blur(10px);
+}

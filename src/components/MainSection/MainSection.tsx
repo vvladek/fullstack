@@ -8,7 +8,7 @@ export function MainSection() {
       <div className={styles.container}>
         <h4>A Fresh Take on Your Holiday</h4>
         <h1>ROAD TRIPS<br/>IN THE USA</h1>
-        <p>Book the trip of your dreams. Unbeatable prices,<br/>unlimited miles, premium cars and much more.</p>
+        <p>Book the trip of your dreams. Unbeatable prices, unlimited miles, premium cars and much more.</p>
         <div className={styles.buttonsContainer}>
           <button>Learn more</button>
           <button>Book trip</button>
