@@ -57,9 +57,10 @@
 }
 
 .loginContainer a:hover {
-  backdrop-filter: blur(5px);
+  backdrop-filter: none;
+  background-color: var(--brandColor);
 }
 
 .loginContainer a:active {
-  backdrop-filter: blur(10px);
+  filter: brightness(125%);
 }

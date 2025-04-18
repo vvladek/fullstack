@@ -54,7 +54,7 @@
 }
 
 .buttonsContainer button:hover {
-  filter: brightness(150%);
+  filter: brightness(125%);
 }
 
 .buttonsContainer button:active {
