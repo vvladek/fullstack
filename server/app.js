@@ -1,23 +1,27 @@
 const express = require("express")
+const { MongoClient, ObjectId } = require("mongodb")
 const app = express()
 const port = 3000
+const uri = "mongodb://localhost:27017"
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+app.use(express.json())
 
-const MongoClient = require("mongodb").MongoClient
+client.connect().then(() => {
+  console.log("Connected to MongoDB")
+}).catch((err) => {
+  console.error("Failed to connect to MongoDB", err)
+})
 
-MongoClient.connect("mongodb://localhost:27017/", (err, client) => {
-  if (err) throw err
+const db = client.db("myNewDB")
+const collection = db.collection("myNewDBtestCollection")
 
-  const db = client.db("myNewDB")
-
-  db.collection("myNewDBtestCollection").find().toArray((err, result) => {
-    if (err) throw err
-
-    app.get("/", (req, res) => {
-      res.send(result)
-    })
-
-    console.log(result)
-  })
+app.get("/", async (req, res) => {
+  try {
+    const result = await collection.find().toArray()
+    res.send(result)
+  } catch (err) {
+    res.send("Error")
+  }
 })
 
 
