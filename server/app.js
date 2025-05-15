@@ -1,30 +1,24 @@
-const express = require("express")
-const { MongoClient, ObjectId } = require("mongodb")
-const app = express()
-const port = 3000
-const uri = "mongodb://localhost:27017"
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-app.use(express.json())
+import express from "express"
+import { Routes } from "./routes/routes.js"
+import { initMongoConnection } from "./mongo/mongo.js"
+import { expressServerPort } from "./constants/constants.js"
 
-client.connect().then(() => {
-  console.log("Connected to MongoDB")
-}).catch((err) => {
-  console.error("Failed to connect to MongoDB", err)
-})
 
-const db = client.db("myNewDB")
-const collection = db.collection("myNewDBtestCollection")
 
-app.get("/", async (req, res) => {
-  try {
-    const result = await collection.find().toArray()
-    res.send(result)
-  } catch (err) {
-    res.send("Error")
+class App extends Routes {
+  constructor() {
+    super()
+    this.app = express()
   }
-})
+
+  async init() {
+    await initMongoConnection()
+    this.app.use(express.json())
+    this.app.use(this.getRoutes())
+    this.app.listen(expressServerPort, () => console.log(`🚀 Server running on port ${expressServerPort}`))
+  }
+}
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+
+new App().init()
