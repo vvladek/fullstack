@@ -1,24 +1,24 @@
 import express from "express"
-import { UsersRouter } from "./routes/users.router.js"
+import { TodosRouter } from "./routes/todos.router.js"
 import { initMongoConnection } from "./mongo/mongo.js"
-import { expressServerPort } from "./constants/constants.js"
+import { expressServerPort } from "./config/constants.js"
 
 
 
 class App {
   constructor() {
     this.app = express()
-    this.usersRouter = new UsersRouter(this.app)
+    this.todosRouter = new TodosRouter(this.app)
   }
 
-  async init() {
+  async start() {
     await initMongoConnection()
     this.app.use(express.json())
-    this.usersRouter.setRoutes()
+    this.todosRouter.setRoutes()
     this.app.listen(expressServerPort, () => console.log(`🚀 Server running on port ${expressServerPort}`))
   }
 }
 
 
 
-new App().init()
+new App().start()

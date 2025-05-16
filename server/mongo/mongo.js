@@ -1,15 +1,15 @@
 import { MongoClient } from "mongodb"
-import { mongoDBUri } from "../constants/constants.js"
+import { mongoDBUri } from "../config/constants.js"
 
 
 const mongoClient = new MongoClient(mongoDBUri)
-let usersCollection
+let todosCollection
 
 
 async function initMongoConnection() {
   try {
     await mongoClient.connect()
-    usersCollection = mongoClient.db("sample_mflix").collection("users")
+    todosCollection = mongoClient.db("nefarious").collection("todos")
     console.log("✅ Connected to MongoDB")
   } catch (err) {
     console.error("❌ Failed to connect to MongoDB:", err)
@@ -18,10 +18,10 @@ async function initMongoConnection() {
 }
 
 
-function getUsersCollection() {
-  if (!usersCollection) throw new Error("MongoDB not initialized")
-  return usersCollection
+function getTodosCollection() {
+  if (!todosCollection) throw new Error("MongoDB not initialized")
+  return todosCollection
 }
 
 
-export { initMongoConnection, getUsersCollection }
+export { initMongoConnection, getTodosCollection }
