@@ -9,6 +9,9 @@ export class TodosRouter {
   }
 
   setRoutes() {
-    this.app.get('/', this.todosController.getTodos)
+    this.app.get('/todos/', this.todosController.getTodos)
+    this.app.get('/todos/add/', this.todosController.addTodo)
+    this.app.get('/todos/edit/', this.todosController.editTodo)
+    this.app.get('/todos/delete/', this.todosController.deleteTodo)
   }
 }
