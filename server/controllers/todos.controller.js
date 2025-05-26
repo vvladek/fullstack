@@ -6,9 +6,12 @@ import { ObjectId } from "mongodb"
 export class TodosController {
 
   async getTodos(req, res, next) {
-    const result = await getTodosCollection().find().toArray()
-    if (result) res.status(200).send(result)
-    else res.status(404).send("sgfjsfh")
+    try {
+      const result = await getTodosCollection().find().toArray()
+      res.status(200).send(result)
+    } catch (error) {
+      res.status(404).send(error)
+    }
   }
 
   async addTodo(req, res, next) {
