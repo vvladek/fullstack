@@ -10,6 +10,6 @@ export class UsersRouter {
 
   setRoutes() {
     this.app.get('/users/', this.todosController.getUsers)
-    this.app.get('/users/add/', this.todosController.addUser)
+    this.app.post('/users/add/', this.todosController.addUser)
   }
 }

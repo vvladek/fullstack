@@ -17,11 +17,11 @@ export class UsersController {
 
   async addUser(req, res, next) {
     const saltRounds = 10
-    const hash = await bcrypt.hash(req.query.password, saltRounds)
+    const hash = await bcrypt.hash(req.body.password, saltRounds)
     if (!hash) return res.status(500).send("Server error")
     const newUser = {
-      username: req.query.username,
-      email: req.query.email,
+      username: req.body.username,
+      email: req.body.email,
       passwordHash: hash
     }
     try {
