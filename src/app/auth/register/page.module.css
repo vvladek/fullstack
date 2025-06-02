@@ -1,0 +1,11 @@
+.section {
+  display: grid;
+  place-items: center center;
+  height: 100vh;
+}
+
+.form {
+  display: grid;
+  place-items: center center;
+  gap: 3px;
+}

@@ -11,8 +11,9 @@ export type User = {
 
 
 
-export type UserInput = {
+export type UserRegistrationInputData = {
   username: string
   email: string
   password: string
+  confirmedPassword: string
 }
