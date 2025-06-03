@@ -17,8 +17,8 @@ export default function Home() {
 
   return (
     <div>
-      <Link href={"/auth/signin"}>Sign in</Link>
-      <Link href={"/auth/register"}>Register</Link>
+      <Link href={"/auth/signin"}>Sign In</Link>
+      <Link href={"/auth/signup"}>Sign Up</Link>
       {/* {users.length ? JSON.stringify(users) : "Loading..."} */}
     </div>
   )

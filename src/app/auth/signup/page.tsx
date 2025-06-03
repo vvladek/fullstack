@@ -17,7 +17,7 @@ const initialInputValues: UserRegistrationInputData = {
 
 
 
-export default function Register() {
+export default function SignUp() {
 
   const router = useRouter()
   const [error, setError] = useState<string>("Please fill in all fields of the form.")
