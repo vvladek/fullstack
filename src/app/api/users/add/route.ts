@@ -23,6 +23,9 @@ export async function POST(request: NextRequest) {
     if (!email || emailError) return NextResponse.json({ error: emailError }, { status: 422 })
     if (!password || passwordError) return NextResponse.json({ error: passwordError }, { status: 422 })
 
+    const users: Collection<User> = await getUsersCollection()
+    const existingUser = await users.findOne({ email })
+    if (existingUser) return NextResponse.json({ error: "User with this email already exists." }, { status: 409 })
 
     const saltRounds: number = 10
     const hash: string = await bcrypt.hash(password, saltRounds)
@@ -31,8 +34,6 @@ export async function POST(request: NextRequest) {
     }, { status: 500 })
 
     const newUser: User = { username, email, passwordHash: hash }
-
-    const users: Collection<User> = await getUsersCollection()
     await users.insertOne(newUser)
 
     const payload = { username, email }

@@ -19,5 +19,11 @@
       width: var(--auth-input-width);
       height: var(--auth-input-height);
     }
+
+    p {
+      width: var(--auth-input-width);
+      font-size: 14px;
+      text-align: center;
+    }
   }
 }

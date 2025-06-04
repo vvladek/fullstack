@@ -1,0 +1,28 @@
+.alert {
+  display: grid;
+  place-content: center center;
+  width: clamp(10vw, 400px, 80vw);
+  border: 2px solid lightgray;
+  padding: 15px;
+  transition: all 0.2s;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  translate: -50% -200%;
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    translate: -50% -50%;
+  }
+}
+
+.show {
+  translate: -50% 0;
+}

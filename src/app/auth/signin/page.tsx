@@ -2,14 +2,15 @@
 
 import { findErrorInEmailInputField, findErrorInPasswordInputField } from "@/lib/auth"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import styles from "./page.module.css"
+import { useAppAlertStore } from "@/store/AppAlertStore"
 
 
 
 export default function SignIn() {
 
   const router = useRouter()
-  const [error, setError] = useState<string>("")
+  const { showAlert } = useAppAlertStore(state => state)
 
 
   async function checkUser(event: React.FormEvent<HTMLFormElement>) {
@@ -23,11 +24,12 @@ export default function SignIn() {
     const passwordError = findErrorInPasswordInputField(`${password}`)
 
     if (emailError || passwordError) {
-      setError([emailError, passwordError].filter(err => err).join(" "))
+      const newError = [emailError, passwordError].filter(err => err).join(" ")
+      showAlert(newError)
       return
     }
 
-    const response: Response = await fetch("/api/login", {
+    const response: Response = await fetch("/api/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -35,28 +37,28 @@ export default function SignIn() {
     })
 
     const data = await response.json()
-    
+
     if (response.ok) router.push("/")
-    else setError(data.error)
+    else showAlert(data.error)
   }
 
 
   return (
-    <form onSubmit={checkUser}>
-      <input
-        type="text"
-        name="email"
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-      {
-        error && <p style={{ color: "red" }}>{error}</p>
-      }
-    </form>
+    <section className={styles.section}>
+      <form onSubmit={checkUser}>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
   )
 }

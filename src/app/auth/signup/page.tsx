@@ -83,7 +83,7 @@ export default function SignUp() {
 
   return (
     <section className={styles.section}>
-      <form className={styles.form} onSubmit={createUser}>
+      <form onSubmit={createUser}>
         <input
           type="text"
           name="username"
