@@ -6,7 +6,7 @@
   form {
     display: grid;
     place-items: center center;
-    gap: 3px;
+    gap: 20px;
 
     input {
       width: var(--auth-input-width);

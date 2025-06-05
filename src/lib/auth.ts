@@ -24,19 +24,21 @@ export function verifyRefreshToken(token: string) {
 }
 
 export function findErrorInUsernameInputField (username: string): string {
-  if (username.length > 20) return "The username is too long."
+  if (username && username.length < 5) return "The username is too short."
+  if (username.length > 25) return "The username is too long."
   if (/[^A-Za-z0-9-_]/g.test(username)) return "The username can only contain letters, numbers, dashes, and underscores."
-  return ""
+  return username ? "" : "The username was not received."
 }
 
 export function findErrorInEmailInputField (email: string): string {
   if (email.length > 50) return "The email address is too long."
   if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) return "The email address is incorrect."
-  return ""
+  return email ? "" : "The email address was not received."
 }
 
 export function findErrorInPasswordInputField (password: string): string {
+  if (password && password.length < 8) return "The password must be at least 8 characters long."
   if (password.length > 250) return "The password is too long."
   if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password)) return "Use a strong password that contains at least 8 characters, at least one lowercase letter, at least one uppercase letter, at least one number, at least one special character."
-  return ""
+  return password ? "" : "The password was not received."
 }

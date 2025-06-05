@@ -38,7 +38,10 @@ export default function SignIn() {
 
     const data = await response.json()
 
-    if (response.ok) router.push("/")
+    if (response.ok) {
+      showAlert(data.message)
+      router.push("/")
+    }
     else showAlert(data.error)
   }
 

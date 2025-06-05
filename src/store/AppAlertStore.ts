@@ -9,7 +9,6 @@ type State = {
 
 type Actions = {
   showAlert: (text: string) => void
-  hideAlert: () => void
 }
 
 export const useAppAlertStore = create<State & Actions>((set) => ({
@@ -17,12 +16,10 @@ export const useAppAlertStore = create<State & Actions>((set) => ({
   text: "",
   isVisible: false,
 
-  showAlert: (text: string) => set(() => ({ text: text, isVisible: true })),
-
-  hideAlert: () => {
-    set(() => ({ isVisible: false }))
+  showAlert: (text: string) => {
+    set(() => ({ text: text, isVisible: true }))
     setTimeout(() => {
-      set(() => ({ text: "" }))
-    }, 500)
-  },
+      set(() => ({ isVisible: false }))
+    }, 5000)
+  }
 }))

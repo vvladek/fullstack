@@ -2,9 +2,9 @@
 
 :root {
   --auth-input-width: clamp(10vw, 400px, 80vw);
-  --auth-input-height: 50px;
-  --auth-input-padding: 5px;
-  --auth-input-border: 1px solid lightgray;
+  --auth-input-height: 45px;
+  --auth-input-padding: 5px 10px;
+  --auth-input-border: 2px solid lightgray;
   --main-text-font: "Montserrat", Arial, Helvetica, sans-serif;
   --main-title-font: "Unbounded", "Montserrat", Arial, Helvetica, sans-serif;
 }
@@ -16,8 +16,10 @@
   outline: none;
   border: none;
   text-decoration: none;
+  background-color: transparent;
   font-family: var(--main-text-font);
   font-weight: 500;
+  color: #222222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

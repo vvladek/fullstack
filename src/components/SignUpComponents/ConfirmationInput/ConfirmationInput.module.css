@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  gap: 5px;
+
+  h5 {
+    background: url(/svg/padlock-check.svg) no-repeat center;
+    background-size: 13px;
+    background-position: left center;
+    font-family: var(--main-title-font);
+    font-weight: 500;
+    padding-left: 17px;
+
+    b {
+      font-family: var(--main-title-font);
+      color: red;
+      font-weight: 700;
+    }
+  }
+
+  div {
+    position: relative;
+  }
+}

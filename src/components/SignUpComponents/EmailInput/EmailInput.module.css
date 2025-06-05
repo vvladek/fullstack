@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  gap: 5px;
+
+  h5 {
+    background: url(/svg/envelope.svg) no-repeat center;
+    background-size: 11px;
+    background-position: left center;
+    font-family: var(--main-title-font);
+    font-weight: 500;
+    padding-left: 18px;
+
+    b {
+      font-family: var(--main-title-font);
+      color: red;
+      font-weight: 700;
+    }
+  }
+}
