@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { findErrorInEmailInputField } from "@/lib/auth"
 import styles from "./EmailInput.module.css"
 
 
@@ -12,23 +13,24 @@ export function EmailInput() {
 
 
   useEffect(() => {
-    // const timeout: NodeJS.Timeout = setTimeout(() => {
-
-    // }, 250)
-    // return () => clearTimeout(timeout)
+    if (!value && !error) return
+    setError(findErrorInEmailInputField(value))
   }, [value])
 
 
   return (
     <div className={styles.container}>
       <h5>EMAIL ADDRESS <b>*</b></h5>
-      {/* <p>Can only contain letters, numbers, dashes, and underscores.</p> */}
       <input
         type="text"
         name="email"
         placeholder="Email"
+        autoComplete="email"
         value={value}
         onChange={(event) => setValue(() => event.target.value)}
+        style={{
+          backgroundColor: `${value && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
+        }}
       />
     </div>
   )

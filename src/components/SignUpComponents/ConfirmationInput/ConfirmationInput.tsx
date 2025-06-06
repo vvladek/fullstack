@@ -1,36 +1,32 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { usePasswordStore } from "@/store/PasswordStore"
 import styles from "./ConfirmationInput.module.css"
 
 
 
 export function ConfirmationInput() {
 
+  const { password } = usePasswordStore(state => state)
   const [value, setValue] = useState<string>("")
-  const [error, setError] = useState<string>("")
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
-
-
-  useEffect(() => {
-    // const timeout: NodeJS.Timeout = setTimeout(() => {
-
-    // }, 250)
-    // return () => clearTimeout(timeout)
-  }, [value])
 
 
   return (
     <div className={styles.container}>
       <h5>CONFIRM PASSWORD <b>*</b></h5>
-      {/* <p>Use a strong password that contains at least 8 characters, at least one lowercase letter, at least one uppercase letter, at least one number, at least one special character.</p> */}
       <div>
         <input
           type={isPasswordVisible ? "text" : "password"}
           name="confirmed"
           placeholder="Confirm password"
+          autoComplete="new-password"
           value={value}
           onChange={(event) => setValue(() => event.target.value)}
+          style={{
+            backgroundColor: `${value && value === password ? "#00ff0020" : value != password ? "#ff000020" : "transparent"}`
+          }}
         />
         <button
           type="button"
@@ -46,7 +42,7 @@ export function ConfirmationInput() {
             cursor: "pointer"
           }}
           onClick={() => setIsPasswordVisible(state => !state)}
-          />
+        />
       </div>
     </div>
   )
