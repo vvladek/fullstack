@@ -10,7 +10,7 @@ export function AppAlert() {
   const { text, isVisible } = useAppAlertStore((state) => state)
 
   return (
-    <div className={`${styles.alert} ${isVisible ? styles.show : ""}`}>
+    <div className={`${styles.alert} ${isVisible ? styles.visible : ""}`}>
       <p>{text}</p>
     </div>
   )

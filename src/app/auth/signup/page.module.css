@@ -6,7 +6,7 @@
   form {
     display: grid;
     place-items: center center;
-    gap: 20px;
+    gap: 15px;
 
     input {
       width: var(--auth-input-width);
@@ -15,9 +15,8 @@
       border: var(--auth-input-border);
     }
 
-    button {
-      width: var(--auth-input-width);
-      height: var(--auth-input-height);
+    .submit {
+      cursor: pointer;
     }
   }
 }

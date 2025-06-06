@@ -2,20 +2,21 @@
 
 import { useEffect, useState } from "react"
 import { findErrorInUsernameInputField } from "@/lib/auth"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 import styles from "./UserNameInput.module.css"
 
 
 
 export function UserNameInput() {
 
-  const [value, setValue] = useState<string>("")
+  const { username, setUsername } = useSignUpValuesStore(state => state)
   const [error, setError] = useState<string>("")
 
 
   useEffect(() => {
-    if (!value && !error) return
-    setError(findErrorInUsernameInputField(value))
-  }, [value])
+    if (!username && !error) return
+    setError(findErrorInUsernameInputField(username))
+  }, [username, error])
 
 
   return (
@@ -27,10 +28,10 @@ export function UserNameInput() {
         name="username"
         placeholder="Username"
         autoComplete="username"
-        value={value}
-        onChange={(event) => setValue(() => event.target.value)}
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
         style={{
-          backgroundColor: `${value && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
+          backgroundColor: `${username && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
         }}
       />
     </div>

@@ -39,6 +39,6 @@ export function findErrorInEmailInputField (email: string): string {
 export function findErrorInPasswordInputField (password: string): string {
   if (password && password.length < 8) return "The password must be at least 8 characters long."
   if (password.length > 250) return "The password is too long."
-  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password)) return "Use a strong password that contains at least 8 characters, at least one lowercase letter, at least one uppercase letter, at least one number, at least one special character."
+  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password)) return "Use a strong password that contains at least the following: 8 characters, one lowercase letter, one uppercase letter, one number, one special character."
   return password ? "" : "The password was not received."
 }

@@ -29,7 +29,6 @@ export default function SignUp() {
       findErrorInPasswordInputField(`${password}`),
       password === confirmedPassword ? "" : "The password and its confirmation do not match."
     ].filter(err => err).join(" ")
-    if (errors) showAlert(errors)
 
     if (errors) {
       showAlert(errors)
@@ -59,7 +58,7 @@ export default function SignUp() {
         <EmailInput />
         <PasswordInput />
         <ConfirmationInput />
-        <button type="submit">REGISTER</button>
+        <input className={styles.submit} type="submit" value="Sign Up" />
       </form>
     </section>
   )

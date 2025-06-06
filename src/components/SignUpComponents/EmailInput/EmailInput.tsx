@@ -2,20 +2,21 @@
 
 import { useEffect, useState } from "react"
 import { findErrorInEmailInputField } from "@/lib/auth"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 import styles from "./EmailInput.module.css"
 
 
 
 export function EmailInput() {
 
-  const [value, setValue] = useState<string>("")
+  const { email, setEmail } = useSignUpValuesStore(state => state)
   const [error, setError] = useState<string>("")
 
 
   useEffect(() => {
-    if (!value && !error) return
-    setError(findErrorInEmailInputField(value))
-  }, [value])
+    if (!email && !error) return
+    setError(findErrorInEmailInputField(email))
+  }, [email, error])
 
 
   return (
@@ -26,10 +27,10 @@ export function EmailInput() {
         name="email"
         placeholder="Email"
         autoComplete="email"
-        value={value}
-        onChange={(event) => setValue(() => event.target.value)}
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
         style={{
-          backgroundColor: `${value && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
+          backgroundColor: `${email && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
         }}
       />
     </div>

@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { findErrorInPasswordInputField } from "@/lib/auth"
-import { usePasswordStore } from "@/store/PasswordStore"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 import styles from "./PasswordInput.module.css"
 
 
 
 export function PasswordInput() {
 
-  const { password, setPassword } = usePasswordStore(state => state)
+  const { password, setPassword } = useSignUpValuesStore(state => state)
   const [error, setError] = useState<string>("")
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
@@ -36,10 +36,9 @@ export function PasswordInput() {
             backgroundColor: `${password && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
           }}
         />
-        <button
-          type="button"
-          style={{
+        <button type="button" style={{
             width: "20px",
+            height: "var(--auth-input-height)",
             aspectRatio: "1 / 1",
             backgroundImage: `url(/svg/eye${isPasswordVisible ? "" : "-crossed"}.svg)`,
             backgroundPosition: "center",

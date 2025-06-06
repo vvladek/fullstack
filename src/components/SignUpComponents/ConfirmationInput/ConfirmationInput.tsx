@@ -1,15 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { usePasswordStore } from "@/store/PasswordStore"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 import styles from "./ConfirmationInput.module.css"
 
 
 
 export function ConfirmationInput() {
 
-  const { password } = usePasswordStore(state => state)
-  const [value, setValue] = useState<string>("")
+  const { password, confirmedPassword, setConfirmedPassword } = useSignUpValuesStore(state => state)
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
 
@@ -22,16 +21,15 @@ export function ConfirmationInput() {
           name="confirmed"
           placeholder="Confirm password"
           autoComplete="new-password"
-          value={value}
-          onChange={(event) => setValue(() => event.target.value)}
+          value={confirmedPassword}
+          onChange={(event) => setConfirmedPassword(event.target.value)}
           style={{
-            backgroundColor: `${value && value === password ? "#00ff0020" : value != password ? "#ff000020" : "transparent"}`
+            backgroundColor: `${confirmedPassword && confirmedPassword === password ? "#00ff0020" : confirmedPassword != password ? "#ff000020" : "transparent"}`
           }}
         />
-        <button
-          type="button"
-          style={{
+        <button type="button" style={{
             width: "20px",
+            height: "var(--auth-input-height)",
             aspectRatio: "1 / 1",
             backgroundImage: `url(/svg/eye${isPasswordVisible ? "" : "-crossed"}.svg)`,
             backgroundPosition: "center",

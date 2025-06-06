@@ -20,6 +20,6 @@ export const useAppAlertStore = create<State & Actions>((set) => ({
     set(() => ({ text: text, isVisible: true }))
     setTimeout(() => {
       set(() => ({ isVisible: false }))
-    }, 5000)
+    }, 10000)
   }
 }))
