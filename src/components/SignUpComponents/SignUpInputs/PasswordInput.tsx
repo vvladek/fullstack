@@ -22,7 +22,7 @@ export function PasswordInput() {
         <input
           type={isPasswordVisible ? "text" : "password"}
           name="password"
-          placeholder="Password"
+          placeholder="#eXaMpLe-4U!"
           autoComplete="new-password"
           className={`${styles.input} ${!password ? "" : !error ? styles.validInput : styles.invalidInput}`}
           value={password}

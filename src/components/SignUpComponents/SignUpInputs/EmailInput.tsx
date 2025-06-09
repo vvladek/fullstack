@@ -19,7 +19,7 @@ export function EmailInput() {
       <input
         type="text"
         name="email"
-        placeholder="Email"
+        placeholder="example@for.you"
         autoComplete="email"
         className={`${styles.input} ${!email ? "" : !error ? styles.validInput : styles.invalidInput}`}
         value={email}

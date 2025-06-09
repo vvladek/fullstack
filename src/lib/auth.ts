@@ -26,7 +26,7 @@ export function verifyRefreshToken(token: string) {
 export function findErrorInUsernameInputField (username: string): string {
   if (username && username.length < 5) return "The username is too short."
   if (username.length > 25) return "The username is too long."
-  if (/[^A-Za-z0-9-_]/g.test(username)) return "The username can only contain letters, numbers, dashes, and underscores."
+  if (/[^A-Za-z0-9_]/g.test(username)) return "The username can only contain letters, numbers, and underscores."
   return username ? "" : "The username was not received."
 }
 

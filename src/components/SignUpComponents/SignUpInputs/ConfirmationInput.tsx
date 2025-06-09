@@ -19,7 +19,7 @@ export function ConfirmationInput() {
         <input
           type={isPasswordVisible ? "text" : "password"}
           name="confirmed"
-          placeholder="Confirm password"
+          placeholder="#eXaMpLe-4U!"
           autoComplete="new-password"
           className={`${styles.input} ${!confirmedPassword ? "" : confirmedPassword === password ?
             styles.validInput : styles.invalidInput}`}

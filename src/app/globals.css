@@ -27,7 +27,7 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-family: var(--main-text-font);
   font-weight: 500;
   color: var(--dark-color);
