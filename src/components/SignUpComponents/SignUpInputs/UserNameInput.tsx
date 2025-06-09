@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { findErrorInUsernameInputField } from "@/lib/auth"
 import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
-import styles from "./UserNameInput.module.css"
+import styles from "./SignUpInputs.module.css"
 
 
 
@@ -13,25 +13,20 @@ export function UserNameInput() {
   const [error, setError] = useState<string>("")
 
 
-  useEffect(() => {
-    if (!username && !error) return
-    setError(findErrorInUsernameInputField(username))
-  }, [username, error])
-
-
   return (
     <div className={styles.container}>
-      <h5>USERNAME <b>*</b></h5>
+      <h5 className={styles.usernameH5}>USERNAME <b>*</b></h5>
       <p>Can only contain letters, numbers, dashes, and underscores.</p>
       <input
         type="text"
         name="username"
         placeholder="Username"
         autoComplete="username"
+        className={`${styles.input} ${!username ? "" : !error ? styles.validInput : styles.invalidInput}`}
         value={username}
-        onChange={(event) => setUsername(event.target.value)}
-        style={{
-          backgroundColor: `${username && !error ? "#00ff0020" : error ? "#ff000020" : "transparent"}`
+        onChange={(event) => {
+          setUsername(event.target.value)
+          setError(findErrorInUsernameInputField(event.target.value))
         }}
       />
     </div>

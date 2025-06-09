@@ -5,10 +5,18 @@
   --main-text-font: "Montserrat", Arial, Helvetica, sans-serif;
   --main-title-font: "Unbounded", "Montserrat", Arial, Helvetica, sans-serif;
 
-  --auth-input-width: clamp(10vw, 400px, 80vw);
-  --auth-input-height: 45px;
+  --brand-color: #FFC100;
+  --dark-color: #222E3A;
+  --light-color: #E8F0FC;
+  --dark-shadow-color: #6F767D;
+  --shadow-color: #9CA2A7;
+  --light-shadow-color: #DADCDE;
+  --extra-light-shadow-color: #EDEEEF;
+
+  --auth-input-width: 300px;
+  --auth-input-height: 40px;
   --auth-input-padding: 5px 10px;
-  --auth-input-border: 2px solid lightgray;
+  --auth-input-border: 2px solid var(--extra-light-shadow-color);
 }
 
 * {
@@ -19,9 +27,10 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
+  border-radius: 5px;
   font-family: var(--main-text-font);
   font-weight: 500;
-  color: #333333;
+  color: var(--dark-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
