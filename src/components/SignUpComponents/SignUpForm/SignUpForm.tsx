@@ -4,6 +4,7 @@ import { findErrorInEmailInputField, findErrorInPasswordInputField, findErrorInU
 import { useRouter } from "next/navigation"
 import { useAppAlertStore } from "@/store/AppAlertStore"
 import { ConfirmationInput, EmailInput, PasswordInput, UserNameInput } from "@/components/SignUpComponents"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 
 
 
@@ -11,23 +12,18 @@ export function SignUpForm() {
 
   const router = useRouter()
   const { showAlert } = useAppAlertStore(state => state)
+  const { username, email, password, confirmedPassword, setEmptySignUpFormValues } = useSignUpValuesStore(state => state)
 
 
   async function createUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
-    const username = formData.get("username")
-    const email = formData.get("email")
-    const password = formData.get("password")
-    const confirmedPassword = formData.get("confirmed")
-
     const errors = [
-      findErrorInUsernameInputField(`${username}`),
-      findErrorInEmailInputField(`${email}`),
-      findErrorInPasswordInputField(`${password}`),
+      findErrorInUsernameInputField(username),
+      findErrorInEmailInputField(email),
+      findErrorInPasswordInputField(password),
       password === confirmedPassword ? "" : "The password and its confirmation do not match."
-    ].filter(err => err).join(" ")
+    ].filter(Boolean).join(" ")
 
     if (errors) {
       showAlert(errors)
@@ -43,6 +39,7 @@ export function SignUpForm() {
 
     const data = await response.json()
     if (response.ok) {
+      setEmptySignUpFormValues()
       showAlert(data.message)
       router.push("/")
     } else showAlert(data.error + " Please try again.")

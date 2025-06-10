@@ -14,6 +14,7 @@ type Actions = {
   setEmail: (email: string) => void
   setPassword: (password: string) => void
   setConfirmedPassword: (confirmedPassword: string) => void
+  setEmptySignUpFormValues: () => void
 }
 
 export const useSignUpValuesStore = create<State & Actions>((set) => ({
@@ -24,5 +25,6 @@ export const useSignUpValuesStore = create<State & Actions>((set) => ({
   setUsername: (username: string) => set(() => ({ username })),
   setEmail: (email: string) => set(() => ({ email })),
   setPassword: (password: string) => set(() => ({ password })),
-  setConfirmedPassword: (confirmedPassword: string) => set(() => ({ confirmedPassword }))
+  setConfirmedPassword: (confirmedPassword: string) => set(() => ({ confirmedPassword })),
+  setEmptySignUpFormValues: () => set(() => ({ username: "", email: "", password: "", confirmedPassword: "" }))
 }))
