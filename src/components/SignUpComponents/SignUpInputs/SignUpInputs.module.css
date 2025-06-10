@@ -36,15 +36,18 @@
 .container p {
   max-width: var(--auth-input-width);
   font-size: 10px;
-  color: var(--dark-shadow-color);
+  /* color: var(--dark-shadow-color); */
   padding-left: 2px;
 }
 
 .input {
   width: var(--auth-input-width);
   height: var(--auth-input-height);
+  background: var(--UI-background);
+  border: var(--UI-border);
+  border-radius: var(--UI-border-radius);
+  backdrop-filter: var(--UI-backdrop-filter);
   padding: var(--auth-input-padding);
-  border: var(--auth-input-border);
 }
 
 .input:focus {

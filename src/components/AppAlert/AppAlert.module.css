@@ -1,14 +1,18 @@
 .alert {
   display: grid;
   place-content: center center;
-  width: fit-content;
-  border: var(--auth-input-border);
-  padding: 15px;
+  width: clamp(50vw, 600px, 95vw);
+  border: var(--UI-border);
+  border-radius: var(--UI-border-radius);
+  background: var(--UI-background);
+  backdrop-filter: var(--UI-backdrop-filter);
+  padding: 20px;
   transition: all 0.2s;
   position: fixed;
   top: 10px;
   left: 50%;
   translate: -50% -200%;
+  overflow: hidden;
 }
 
 .alert p {

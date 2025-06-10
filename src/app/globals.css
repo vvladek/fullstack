@@ -13,8 +13,13 @@
   --light-shadow-color: #DADCDE;
   --extra-light-shadow-color: #EDEEEF;
 
+  --UI-background: linear-gradient(30deg, #ffffff20, transparent, #ffffff20, transparent);
+  --UI-backdrop-filter: blur(10px) brightness(80%);
+  --UI-border: 2px solid #ffffff60;
+  --UI-border-radius: 10px;
+
   --auth-input-width: 300px;
-  --auth-input-height: 40px;
+  --auth-input-height: 50px;
   --auth-input-padding: 5px 10px;
   --auth-input-border: 2px solid var(--extra-light-shadow-color);
 }
@@ -27,10 +32,9 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
-  /* border-radius: 5px; */
   font-family: var(--main-text-font);
   font-weight: 500;
-  color: var(--dark-color);
+  color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
