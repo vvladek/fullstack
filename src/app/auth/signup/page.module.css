@@ -2,26 +2,6 @@
   display: grid;
   place-items: center center;
   height: 100vh;
-}
-
-.section form {
-  display: grid;
-  gap: 15px;
-}
-
-.section form button[type="submit"] {
-  width: var(--auth-input-width);
-  height: var(--auth-input-height);
-  background-color: var(--brand-color);
-  font-weight: 600;
-  translate: 0 -5px;
-  cursor: pointer;
-}
-
-.section form button[type="submit"]:hover {
-  filter: brightness(105%);
-}
-
-.section form button[type="submit"]:active {
-  filter: none;
+  background: url(/webp/nefarious-bg.webp) no-repeat center;
+  background-size: cover;
 }

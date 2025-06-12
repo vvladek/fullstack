@@ -1,27 +1,17 @@
 .section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  width: 100vw;
-  height: 100vh;
-}
-
-.section a {
   display: grid;
   place-content: center center;
-  width: var(--auth-input-width);
-  height: var(--auth-input-height);
-  background: var(--UI-background);
-  border: var(--UI-border);
-  border-radius: var(--UI-border-radius);
-  backdrop-filter: var(--UI-backdrop-filter);
+  gap: 3px;
+  width: 100vw;
+  height: 100vh;
+  /* background: url(/webp/nefarious-bg.webp) no-repeat center;
+  background-size: cover; */
+  position: fixed;
+  top: 0;
 }
 
-.section a:hover {
-  backdrop-filter: brightness(65%);
-}
-
-.section a:active {
-  backdrop-filter: var(--UI-backdrop-filter);
+.container {
+  display: grid;
+  gap: 3px;
+  padding: 50px 80px;
 }

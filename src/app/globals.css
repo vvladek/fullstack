@@ -1,27 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Unbounded:wght@200..900&display=swap");
 
 :root {
-
   --main-text-font: "Montserrat", Arial, Helvetica, sans-serif;
   --main-title-font: "Unbounded", "Montserrat", Arial, Helvetica, sans-serif;
-
-  --brand-color: #FFC100;
-  --dark-color: #222E3A;
-  --light-color: #E8F0FC;
-  --dark-shadow-color: #6F767D;
-  --shadow-color: #9CA2A7;
-  --light-shadow-color: #DADCDE;
-  --extra-light-shadow-color: #EDEEEF;
-
-  --UI-background: linear-gradient(30deg, #ffffff20, transparent, #ffffff20, transparent);
-  --UI-backdrop-filter: blur(10px) brightness(80%);
-  --UI-border: 2px solid #ffffff60;
-  --UI-border-radius: 10px;
-
-  --auth-input-width: 300px;
-  --auth-input-height: 50px;
-  --auth-input-padding: 5px 10px;
-  --auth-input-border: 2px solid var(--extra-light-shadow-color);
 }
 
 * {
@@ -34,11 +15,57 @@
   background-color: transparent;
   font-family: var(--main-text-font);
   font-weight: 500;
-  color: white;
+  color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: var(--main-title-font);
+body {
+  width: 100%;
+  height: 500vh;
+}
+
+.UICase {
+  border: 1px solid #FFFFFFAA;
+  border-radius: 15px;
+  background: linear-gradient(-40deg, #FFFFFF20, #FFFFFF40, transparent, #FFFFFF60, #FFFFFF20);
+  box-shadow: 2px 2px 2px -1px inset #FFFFFFCC, -2px -2px 2px -1px inset #FFFFFF60;
+  backdrop-filter: blur(10px) saturate(150%) brightness(80%);
+  filter: drop-shadow(5px 5px 7px #000000);
+}
+
+.UICaseButton {
+  width: clamp(20vw, 300px, 90vw);
+  height: 40px;
+  border: 1px solid #FFFFFFAA;
+  border-radius: 10px;
+  background: linear-gradient(-40deg, #FFFFFF20, #FFFFFF40, transparent, #FFFFFF60, #FFFFFF20);
+  box-shadow: 2px 2px 2px -1px inset #FFFFFFCC, -2px -2px 2px -1px inset #FFFFFF60;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.UICaseButton:hover {
+  filter: drop-shadow(0 0 1px #00000080);
+}
+
+.UICaseButton:active {
+  filter: none;
+}
+
+.UICaseInput {
+  width: clamp(20vw, 300px, 90vw);
+  height: 40px;
+  border: 2px solid #FFFFFF80;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.UICaseInput:focus {
+  border: 2px solid #FFFFFF;
+}
+
+.UICaseInput::placeholder {
+  color: #FFFFFF80;
 }

@@ -2,8 +2,8 @@
 
 import { findErrorInEmailInputField, findErrorInPasswordInputField } from "@/lib/auth"
 import { useRouter } from "next/navigation"
-import styles from "./page.module.css"
 import { useAppAlertStore } from "@/store/AppAlertStore"
+import styles from "./page.module.css"
 
 
 
@@ -17,11 +17,11 @@ export default function SignIn() {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
-    const email = formData.get("email")
-    const password = formData.get("password")
+    const email = formData.get("email") as string
+    const password = formData.get("password") as string
 
-    const emailError = findErrorInEmailInputField(`${email}`)
-    const passwordError = findErrorInPasswordInputField(`${password}`)
+    const emailError = findErrorInEmailInputField(email)
+    const passwordError = findErrorInPasswordInputField(password)
 
     if (emailError || passwordError) {
       const newError = [emailError, passwordError].filter(err => err).join(" ")
@@ -48,18 +48,20 @@ export default function SignIn() {
 
   return (
     <section className={styles.section}>
-      <form onSubmit={checkUser}>
+      <form className={`${styles.form} UICase`} onSubmit={checkUser}>
         <input
+          className="UICaseInput"
           type="text"
           name="email"
           placeholder="Email"
         />
         <input
+          className="UICaseInput"
           type="password"
           name="password"
           placeholder="Password"
         />
-        <button type="submit">Login</button>
+        <button className="UICaseButton" type="submit">Login</button>
       </form>
     </section>
 

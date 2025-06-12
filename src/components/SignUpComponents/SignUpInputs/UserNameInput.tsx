@@ -15,14 +15,12 @@ export function UserNameInput() {
 
   return (
     <div className={styles.container}>
-      <h5 className={styles.usernameH5}>USERNAME <b>*</b></h5>
-      <p>Can only contain letters, numbers, and underscores.</p>
       <input
         type="text"
         name="username"
-        placeholder="Example_4_You"
-        autoComplete="username"
-        className={`${styles.input} ${!username ? "" : !error ? styles.validInput : styles.invalidInput}`}
+        placeholder="Username"
+        autoComplete="off"
+        className={`${!username ? "" : !error ? styles.validInput : styles.invalidInput} UICaseInput`}
         value={username}
         onChange={(event) => {
           setUsername(event.target.value)

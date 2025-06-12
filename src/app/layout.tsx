@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { AppAlert, GradientBackground } from "@/components"
+import { AppAlert } from "@/components"
 import "./globals.css"
 
 
@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <GradientBackground />
         <AppAlert />
         {children}
       </body>

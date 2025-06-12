@@ -2,22 +2,12 @@
   display: grid;
   place-items: center center;
   height: 100vh;
+  background: url(/webp/nefarious-bg.webp) no-repeat center;
+  background-size: cover;
+}
 
-  form {
-    display: grid;
-    place-items: center center;
-    gap: 3px;
-
-    input {
-      width: var(--auth-input-width);
-      height: var(--auth-input-height);
-      padding: var(--auth-input-padding);
-      border: var(--auth-input-border);
-    }
-
-    button {
-      width: var(--auth-input-width);
-      height: var(--auth-input-height);
-    }
-  }
+.form {
+  display: grid;
+  gap: 3px;
+  padding: 70px 80px;
 }

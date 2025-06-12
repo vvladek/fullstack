@@ -15,13 +15,12 @@ export function EmailInput() {
 
   return (
     <div className={styles.container}>
-      <h5 className={styles.emailH5}>EMAIL ADDRESS <b>*</b></h5>
       <input
         type="text"
         name="email"
-        placeholder="example@for.you"
-        autoComplete="email"
-        className={`${styles.input} ${!email ? "" : !error ? styles.validInput : styles.invalidInput}`}
+        placeholder="Email"
+        autoComplete="off"
+        className={`${!email ? "" : !error ? styles.validInput : styles.invalidInput} UICaseInput`}
         value={email}
         onChange={(event) => {
           setEmail(event.target.value)

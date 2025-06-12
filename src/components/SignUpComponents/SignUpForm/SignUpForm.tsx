@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useAppAlertStore } from "@/store/AppAlertStore"
 import { ConfirmationInput, EmailInput, PasswordInput, UserNameInput } from "@/components/SignUpComponents"
 import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
+import styles from "./SignUpForm.module.css"
 
 
 
@@ -30,7 +31,7 @@ export function SignUpForm() {
       return
     }
 
-    const response: Response = await fetch("/api/users/add", {
+    const response: Response = await fetch("/api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -48,12 +49,12 @@ export function SignUpForm() {
 
 
   return (
-    <form onSubmit={createUser} >
+    <form className={`${styles.form} UICase`} onSubmit={createUser} >
       <UserNameInput />
       <EmailInput />
       <PasswordInput />
       <ConfirmationInput />
-      <button type="submit">Sign Up</button>
+      <button className="UICaseButton" type="submit">Sign Up</button>
     </form >
   )
 }

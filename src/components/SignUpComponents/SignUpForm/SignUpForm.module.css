@@ -1,0 +1,5 @@
+.form {
+  display: grid;
+  gap: 3px;
+  padding: 70px 80px;
+}
