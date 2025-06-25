@@ -1,14 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
-import styles from "./SignUpInputs.module.css"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
+import styles from "./AuthInputs.module.css"
 
 
 
 export function ConfirmationInput() {
 
-  const { password, confirmedPassword, setConfirmedPassword } = useSignUpValuesStore(state => state)
+  const { password, confirmedPassword, setConfirmedPassword } = useAuthValuesStore(state => state)
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
 

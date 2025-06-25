@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { findErrorInUsernameInputField } from "@/lib/auth"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
-import styles from "./SignUpInputs.module.css"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
+import styles from "./AuthInputs.module.css"
 
 
 
 export function UserNameInput() {
 
-  const { username, setUsername } = useSignUpValuesStore(state => state)
+  const { username, setUsername } = useAuthValuesStore(state => state)
   const [error, setError] = useState<string>("")
 
 

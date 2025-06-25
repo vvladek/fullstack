@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { findErrorInPasswordInputField } from "@/lib/auth"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
-import styles from "./SignUpInputs.module.css"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
+import styles from "./AuthInputs.module.css"
 
 
 
 export function PasswordInput() {
 
-  const { password, setPassword } = useSignUpValuesStore(state => state)
+  const { password, setPassword } = useAuthValuesStore(state => state)
   const [error, setError] = useState<string>("")
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 

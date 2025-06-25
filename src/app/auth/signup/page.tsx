@@ -4,7 +4,7 @@ import { findErrorInEmailInputField, findErrorInPasswordInputField, findErrorInU
 import { useRouter } from "next/navigation"
 import { useAlertStore } from "@/store/AlertStore"
 import { ConfirmationInput, EmailInput, PasswordInput, UserNameInput } from "@/components"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
 import styles from "./page.module.css"
 
 
@@ -13,7 +13,7 @@ export default function SignUp() {
 
   const router = useRouter()
   const { showAlert } = useAlertStore(state => state)
-  const { username, email, password, confirmedPassword, setEmptySignUpFormValues } = useSignUpValuesStore(state => state)
+  const { username, email, password, confirmedPassword, setEmptyAuthFormValues } = useAuthValuesStore(state => state)
 
 
   async function createUser(event: React.FormEvent<HTMLFormElement>) {
@@ -40,7 +40,7 @@ export default function SignUp() {
 
     const data = await response.json()
     if (response.ok) {
-      setEmptySignUpFormValues()
+      setEmptyAuthFormValues()
       showAlert(data.message)
       router.push("/")
     } else showAlert(data.error + " Please try again.")

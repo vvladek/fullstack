@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { findErrorInEmailInputField } from "@/lib/auth"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
-import styles from "./SignUpInputs.module.css"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
+import styles from "./AuthInputs.module.css"
 
 
 
 export function EmailInput() {
 
-  const { email, setEmail } = useSignUpValuesStore(state => state)
+  const { email, setEmail } = useAuthValuesStore(state => state)
   const [error, setError] = useState<string>("")
 
 

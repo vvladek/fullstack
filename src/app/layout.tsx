@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { AppAlert } from "@/components"
+import { Alert } from "@/components"
 import "./globals.css"
 
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppAlert />
+        <Alert />
         {children}
       </body>
     </html>

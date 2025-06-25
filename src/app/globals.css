@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Unbounded:wght@200..900&display=swap");
 
 :root {
+  --brand-color: #FFDD00;
+  --success-color: #00FF00;
+  --info-color: #0000FF;
+  --danger-color: #ff9900;
+  --error-color: #E82828;
+  --gray-100: #EEF1F3;
+  --gray-200: #E3E7EB;
+  --gray-300: #C8CED2;
+  --gray-400: #9FA4A9;
+  --gray-500: #8D9499;
+  --gray-600: #71767C;
+  --gray-700: #646B72;
+  --gray-800: #525963;
+  --gray-900: #434D56;
+  --gray-1000: #242F3A;
   --main-text-font: "Montserrat", Arial, Helvetica, sans-serif;
   --main-title-font: "Unbounded", "Montserrat", Arial, Helvetica, sans-serif;
 }

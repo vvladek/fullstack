@@ -4,7 +4,7 @@ import { findErrorInEmailInputField, findErrorInPasswordInputField } from "@/lib
 import { useRouter } from "next/navigation"
 import { useAlertStore } from "@/store/AlertStore"
 import { EmailInput, PasswordInput } from "@/components"
-import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
+import { useAuthValuesStore } from "@/store/AuthValuesStore"
 import styles from "./page.module.css"
 
 
@@ -13,7 +13,7 @@ export default function SignIn() {
 
   const router = useRouter()
   const { showAlert } = useAlertStore(state => state)
-  const { email, password, setEmptySignUpFormValues } = useSignUpValuesStore(state => state)
+  const { email, password, setEmptyAuthFormValues } = useAuthValuesStore(state => state)
 
 
   async function checkUser(event: React.FormEvent<HTMLFormElement>) {
@@ -38,7 +38,7 @@ export default function SignIn() {
     const data = await response.json()
 
     if (response.ok) {
-      setEmptySignUpFormValues()
+      setEmptyAuthFormValues()
       showAlert(data.message)
       router.push("/")
     }
