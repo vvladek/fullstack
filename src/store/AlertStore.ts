@@ -11,7 +11,7 @@ type Actions = {
   showAlert: (text: string) => void
 }
 
-export const useAppAlertStore = create<State & Actions>((set) => ({
+export const useAlertStore = create<State & Actions>((set) => ({
 
   text: "",
   isVisible: false,

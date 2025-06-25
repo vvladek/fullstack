@@ -5,3 +5,9 @@
   background: url(/webp/emitter-glass.webp) no-repeat center;
   background-size: cover;
 }
+
+.form {
+  display: grid;
+  gap: 3px;
+  padding: 70px 80px;
+}

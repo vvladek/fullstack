@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse<unk
 
   if (token && pathname.startsWith("/auth")) return NextResponse.redirect(new URL("/", request.url))
 
-  if (!token && !(pathname.startsWith("/auth"))) return NextResponse.redirect(new URL("/", request.url))
+  if (!token && !(pathname.startsWith("/auth"))) return NextResponse.redirect(new URL("/auth/signin", request.url))
 
   return NextResponse.next()
 }
@@ -20,5 +20,5 @@ export async function middleware(request: NextRequest): Promise<NextResponse<unk
 
 
 export const config = {
-  matcher: ["/todolist/:path*", "/auth/:path*"]
+  matcher: ["/", "/auth/:path*"]
 }

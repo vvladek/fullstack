@@ -2,7 +2,9 @@
 
 import { findErrorInEmailInputField, findErrorInPasswordInputField } from "@/lib/auth"
 import { useRouter } from "next/navigation"
-import { useAppAlertStore } from "@/store/AppAlertStore"
+import { useAlertStore } from "@/store/AlertStore"
+import { EmailInput, PasswordInput } from "@/components"
+import { useSignUpValuesStore } from "@/store/SignUpValuesStore"
 import styles from "./page.module.css"
 
 
@@ -10,21 +12,18 @@ import styles from "./page.module.css"
 export default function SignIn() {
 
   const router = useRouter()
-  const { showAlert } = useAppAlertStore(state => state)
+  const { showAlert } = useAlertStore(state => state)
+  const { email, password, setEmptySignUpFormValues } = useSignUpValuesStore(state => state)
 
 
   async function checkUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
-
     const emailError = findErrorInEmailInputField(email)
     const passwordError = findErrorInPasswordInputField(password)
 
     if (emailError || passwordError) {
-      const newError = [emailError, passwordError].filter(err => err).join(" ")
+      const newError = [emailError, passwordError].filter(Boolean).join(" ")
       showAlert(newError)
       return
     }
@@ -39,6 +38,7 @@ export default function SignIn() {
     const data = await response.json()
 
     if (response.ok) {
+      setEmptySignUpFormValues()
       showAlert(data.message)
       router.push("/")
     }
@@ -49,18 +49,8 @@ export default function SignIn() {
   return (
     <section className={styles.section}>
       <form className={`${styles.form} UICase`} onSubmit={checkUser}>
-        <input
-          className="UICaseInput"
-          type="text"
-          name="email"
-          placeholder="Email"
-        />
-        <input
-          className="UICaseInput"
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
+        <EmailInput />
+        <PasswordInput />
         <button className="UICaseButton" type="submit">Login</button>
       </form>
     </section>
