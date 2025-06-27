@@ -20,7 +20,7 @@ export function EmailInput() {
         name="email"
         placeholder="Email"
         autoComplete="off"
-        className={`${!email ? "" : !error ? styles.validInput : styles.invalidInput} UICaseInput`}
+        className={`${!email ? styles.input : !error ? styles.validInput : styles.invalidInput} authInput`}
         value={email}
         onChange={(event) => {
           setEmail(event.target.value)

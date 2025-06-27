@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useAlertStore } from "@/store/AlertStore"
 import { EmailInput, PasswordInput } from "@/components"
 import { useAuthValuesStore } from "@/store/AuthValuesStore"
+import Link from "next/link"
 import styles from "./page.module.css"
 
 
@@ -48,10 +49,30 @@ export default function SignIn() {
 
   return (
     <section className={styles.section}>
-      <form className={`${styles.form} UICase`} onSubmit={checkUser}>
+      <div className={styles.hello}>
+        <h1>NEFARIOUS.IT</h1>
+        <h4>Made With</h4>
+        <p>TypeScript, CSS, Next.js, MongoDB, Zustand, JSON Web Token, Bcrypt, Nginx, PM2, WebSocket</p>
+        <h4>Deployed On</h4>
+        <p>VPS Linux Ubuntu using a secure connections HTTPS and WSS for websocket</p>
+        <h4>UX/UI</h4>
+        <p>Design and images for the website are my original idea and were created by me using Photoshop</p>
+        <h4>Used In Your Browser</h4>
+        <p>This website uses cookies, local storage, session storage in your browser. If you do not agree with this, leave it</p>
+        <h4>Features</h4>
+        <p>Implemented authentication with access and refresh tokens, as well as storing passwords in a hash</p>
+      </div>
+      <form className={styles.form} onSubmit={checkUser}>
+        <h3>Sign in</h3>
         <EmailInput />
+        <Link href="">Forgot password?</Link>
         <PasswordInput />
-        <button className="UICaseButton" type="submit">Login</button>
+        <div className={styles.remember}>
+          <input type="checkbox" />
+          <p>Remember me</p>
+        </div>
+        <button className="authButton" type="button">Sign in</button>
+        <p>Don't have an account? <Link href="/auth/signup">Sign up</Link></p>
       </form>
     </section>
 

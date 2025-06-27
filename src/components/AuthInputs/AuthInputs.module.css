@@ -2,26 +2,22 @@
   position: relative;
 }
 
-.validInput {
-  background: linear-gradient(-40deg, #FFFFFF20, #FFFFFF40, transparent, #FFFFFF60, #FFFFFF20);
-  background-color: #0f586e;
-  border: 2px solid white;
+.validInput:focus {
+  background-color: #00ff0020;
 }
 
-.invalidInput {
-  background: linear-gradient(-40deg, #FFFFFF20, #FFFFFF40, transparent, #FFFFFF60, #FFFFFF20);
-  background-color: #e10b64;
-  border: 2px solid white;
+.invalidInput:focus {
+  background-color: #ff8c8c;
 }
 
 .container button {
-  width: 16px;
+  width: 18px;
   aspect-ratio: 1 / 1;
   background: url(/svg/eye.svg) no-repeat center;
   background-size: contain;
   position: absolute;
-  top: calc(50% - 8px);
-  right: 10px;
+  top: calc(50% - 9px);
+  right: 12px;
   cursor: pointer;
 }
 

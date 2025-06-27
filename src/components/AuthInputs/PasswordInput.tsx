@@ -21,7 +21,7 @@ export function PasswordInput() {
         name="password"
         placeholder="Password"
         autoComplete="off"
-        className={`${!password ? "" : !error ? styles.validInput : styles.invalidInput} UICaseInput`}
+        className={`${!password ? styles.input : !error ? styles.validInput : styles.invalidInput} authInput`}
         value={password}
         onChange={(event) => {
           setPassword(event.target.value)
