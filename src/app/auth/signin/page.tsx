@@ -72,7 +72,7 @@ export default function SignIn() {
           <p>Remember me</p>
         </div>
         <button className="authButton" type="button">Sign in</button>
-        <p>Don't have an account? <Link href="/auth/signup">Sign up</Link></p>
+        <p>{`Don't have an account? `}<Link href="/auth/signup">Sign up</Link></p>
       </form>
     </section>
 
